@@ -3,7 +3,7 @@
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
             
             <div class="footer-menu">
-                <?php if($logo = get_field('footer_logo')): ?>
+                <?php if($logo = get_field('footer_logo', 'option')): ?>
                     <img src="<?php echo e($logo['url']); ?>" alt="<?php echo e($logo['alt']); ?>" class="mb-4 max-w-[200px]">
                 <?php else: ?>
                     <a class="brand text-purple-800 font-bold text-3xl mb-4 inline-block" href="<?php echo e(home_url('/')); ?>">
@@ -25,48 +25,31 @@
 
             
             <div class="footer-map">
-                <h2 class="text-xl font-semibold mb-4"><?php echo e(get_field('map_heading') ?: 'Find out more'); ?></h2>
+                <h2 class="text-xl font-semibold mb-4"><?php echo e(get_field('map_heading', 'option') ?: 'Find out more'); ?></h2>
                 <?php echo $__env->make('components.map', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
             </div>
 
             
             <div class="footer-social">
-                <h2 class="text-xl font-semibold mb-4"><?php echo e(get_field('social_heading') ?: 'Follow Us'); ?></h2>
+                <h2 class="text-xl font-semibold mb-4"><?php echo e(get_field('social_heading', 'option') ?: 'Follow Us'); ?></h2>
                 <div class="flex space-x-4">
-                    
-                    <?php if($facebook_url = get_field('facebook_url')): ?>
-                        <?php if($facebook_logo = get_field('facebook_logo')): ?>
-                            <a href="<?php echo e($facebook_url); ?>" target="_blank" rel="noopener noreferrer">
-                                <img src="<?php echo e($facebook_logo['url']); ?>" alt="Facebook" class="w-6 h-6">
-                            </a>
-                        <?php endif; ?>
-                    <?php endif; ?>
+                    <?php
+                        $menu_id = 4; // Replace with your actual menu ID
+                        $menu_items = wp_get_nav_menu_items($menu_id);
+                    ?>
 
-                    
-                    <?php if($x_url = get_field('x_url')): ?>
-                        <?php if($x_logo = get_field('x_logo')): ?>
-                            <a href="<?php echo e($x_url); ?>" target="_blank" rel="noopener noreferrer">
-                                <img src="<?php echo e($x_logo['url']); ?>" alt="Twitter" class="w-6 h-6">
-                            </a>
-                        <?php endif; ?>
-                    <?php endif; ?>
-
-                    
-                    <?php if($instagram_url = get_field('instagram_url')): ?>
-                        <?php if($instagram_logo = get_field('instagram_logo')): ?>
-                            <a href="<?php echo e($instagram_url); ?>" target="_blank" rel="noopener noreferrer">
-                                <img src="<?php echo e($instagram_logo['url']); ?>" alt="Instagram" class="w-6 h-6">
-                            </a>
-                        <?php endif; ?>
-                    <?php endif; ?>
-
-                    
-                    <?php if($linkedin_url = get_field('linkedin_url')): ?>
-                        <?php if($linkedin_logo = get_field('linkedin_logo')): ?>
-                            <a href="<?php echo e($linkedin_url); ?>" target="_blank" rel="noopener noreferrer">
-                                <img src="<?php echo e($linkedin_logo['url']); ?>" alt="LinkedIn" class="w-6 h-6">
-                            </a>
-                        <?php endif; ?>
+                    <?php if($menu_items): ?>
+                        <?php $__currentLoopData = $menu_items; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                            <?php
+                                $logo = get_field('social_media_logo', $item->ID);
+                                $url = $item->url;
+                            ?>
+                            <?php if($logo && $url): ?>
+                                <a href="<?php echo e($url); ?>" target="_blank" rel="noopener noreferrer">
+                                    <img src="<?php echo e($logo['url']); ?>" alt="<?php echo e($item->title); ?>" class="w-6 h-6">
+                                </a>
+                            <?php endif; ?>
+                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                     <?php endif; ?>
                 </div>
             </div>

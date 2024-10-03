@@ -1,17 +1,17 @@
-<div class="container mx-auto my-8 px-4">
+<div class="container mx-auto my-8">
     <div
-        class="flex flex-col lg:flex-row items-center lg:space-x-6 space-y-6 lg:space-y-0 <?php echo e($reverse ? 'lg:flex-row-reverse' : ''); ?>">
+        class="flex flex-col md:flex-row items-center md:space-x-6 space-y-6 md:space-y-0 <?php echo e($reverse ? 'md:flex-row-reverse' : ''); ?>">
 
         <!-- Text Column -->
-        <div class="w-full lg:w-1/3 flex flex-col justify-center items-start p-4 lg:p-6">
+        <div class="w-full lg:w-[60%] flex-shrink-0 flex flex-col justify-center items-start p-6">
             <h2 class="text-3xl font-bold mb-2"><?php echo e($heading); ?></h2>
             <h3 class="text-xl text-[#604BD8] font-semibold mb-4"><?php echo e($subheading); ?></h3>
             <p class="text-lg text-[#626262] mb-6"><?php echo e($description); ?></p>
-            <div class="flex flex-wrap gap-4">
+            <div class="space-x-4">
                 
                 <?php if($cta1): ?>
                     <a href="<?php echo e($cta1['url']); ?>" target="<?php echo e($cta1['target'] ?? '_self'); ?>"
-                        class="bg-custom-gradient text-white px-6 py-2 rounded-full transition-colors hover:bg-gradient-to-b from-[#342C67] to-[#291B64] inline-block">
+                        class="bg-custom-gradient text-white px-8 py-2 rounded-full transition-colors hover:bg-gradient-to-b from-[#342C67] to-[#291B64]">
                         <?php echo e($cta1['title']); ?>
 
                     </a>
@@ -20,7 +20,7 @@
                 
                 <?php if($cta2): ?>
                     <a href="<?php echo e($cta2['url']); ?>" target="<?php echo e($cta2['target'] ?? '_self'); ?>"
-                        class="text-[#604BD8] px-6 py-2 rounded-full transition-colors border-[#604BD8] border-2 hover:bg-gradient-to-b from-[#342C67] to-[#291B64] hover:text-white inline-block">
+                        class="text-[#604BD8] px-8 py-2 rounded-full transition-colors border-[#604BD8] border-2 hover:bg-gradient-to-b from-[#342C67] to-[#291B64]">
                         <?php echo e($cta2['title']); ?>
 
                     </a>
@@ -29,11 +29,9 @@
         </div>
 
         <!-- Image Column -->
-        <div class="w-full lg:w-2/3 relative">
-            <div class="aspect-w-16 aspect-h-9 lg:aspect-w-2 lg:aspect-h-1">
-                <img src="<?php echo e($imgSrc['url']); ?>" alt="Placeholder Image"
-                    class="w-full h-full object-cover rounded-lg shadow-md">
-            </div>
+        <div class="w-full md:w-2/3 lg:w-[100%] flex-shrink-0 relative h-64 md:h-full">
+            <img src="<?php echo e($imgSrc['url']); ?>" alt="Placeholder Image"
+                class="inset-0 w-full h-full object-cover rounded-lg shadow-md">
         </div>
 
     </div>
