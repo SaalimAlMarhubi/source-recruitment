@@ -1,1 +1,1 @@
-<img class="w-64" src="{{ asset('images/map.png') }}" alt="">
+<img class="w-64" src="{{ asset('images/new-map.png') }}" alt="">
