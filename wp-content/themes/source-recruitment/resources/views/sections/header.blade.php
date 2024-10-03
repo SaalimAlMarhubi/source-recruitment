@@ -1,6 +1,6 @@
 <header class="banner bg-white shadow-md">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex items-center justify-between">
+        <div class="flex items-center justify-between h-[90px]">
             <a class="brand text-purple-800 font-bold text-2xl" href="{{ home_url('/') }}">
                 {!! $siteName !!}<span class="text-[#CFFF4D]">.</span>
             </a>

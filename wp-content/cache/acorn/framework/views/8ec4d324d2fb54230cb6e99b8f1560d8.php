@@ -7,7 +7,7 @@
                     <img src="<?php echo e($logo['url']); ?>" alt="<?php echo e($logo['alt']); ?>" class="mb-4 max-w-[200px]">
                 <?php else: ?>
                     <a class="brand text-purple-800 font-bold text-3xl mb-4 inline-block" href="<?php echo e(home_url('/')); ?>">
-                        <?php echo $siteName; ?><span class="text-white">.</span>
+                        <?php echo $siteName; ?><span class="text-[#CFFF4D]">.</span>
                     </a>
                 <?php endif; ?>
 
@@ -25,7 +25,7 @@
 
             
             <div class="footer-map">
-                <h2 class="text-xl font-semibold mb-4"><?php echo e(get_field('map_heading', 'option') ?: 'Find out more'); ?></h2>
+                <h2 class="text-xl font-semibold mb-4">Find Us.</h2>
                 <?php echo $__env->make('components.map', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
             </div>
 
