@@ -1,0 +1,2 @@
+<?php (dynamic_sidebar('sidebar-primary')); ?>
+<?php /**PATH /Users/saalim/Local Sites/source-recruitment/app/public/wp-content/themes/source-recruitment/resources/views/sections/sidebar.blade.php ENDPATH**/ ?>

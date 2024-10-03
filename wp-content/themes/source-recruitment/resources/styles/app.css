@@ -1,0 +1,37 @@
+/* Import Splide CSS */
+@import '@splidejs/splide/dist/css/splide.min.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Ensure the image fills the right column fully */
+#image-carousel img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensures image covers the entire container */
+}
+
+/* Position the pagination dots 20px from the right */
+.splide__pagination {
+  position: absolute !important;
+  right: 20px !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 8px !important;
+}
+
+.splide__pagination__page {
+  background-color: white;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+/* Active dot styling */
+.splide__pagination__page.is-active {
+  background-color: limegreen;
+}
