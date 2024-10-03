@@ -1,10 +1,9 @@
-{{-- components/card.blade.php --}}
 <div class="card bg-white shadow-lg rounded-lg overflow-hidden">
 
     <div class="p-6">
         {{-- Image --}}
         @if ($image)
-            <img src="{{ $image['url'] }}" alt="{{ $image['alt'] }}" class="w-10 object-cover">
+            <img src="{{ $image['url'] }}" alt="{{ $image['alt'] }}" class="w-[50px] py-8 object-cover">
         @endif
         {{-- Header --}}
         @if ($header)

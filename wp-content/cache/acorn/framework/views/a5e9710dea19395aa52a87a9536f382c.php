@@ -1,10 +1,9 @@
-
 <div class="card bg-white shadow-lg rounded-lg overflow-hidden">
 
     <div class="p-6">
         
         <?php if($image): ?>
-            <img src="<?php echo e($image['url']); ?>" alt="<?php echo e($image['alt']); ?>" class="w-10 object-cover">
+            <img src="<?php echo e($image['url']); ?>" alt="<?php echo e($image['alt']); ?>" class="w-[50px] py-8 object-cover">
         <?php endif; ?>
         
         <?php if($header): ?>
