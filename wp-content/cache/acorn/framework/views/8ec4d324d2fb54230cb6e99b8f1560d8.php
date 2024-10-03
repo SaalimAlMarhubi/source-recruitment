@@ -34,8 +34,12 @@
                 <h2 class="text-xl font-semibold mb-4"><?php echo e(get_field('social_heading', 'option') ?: 'Follow Us'); ?></h2>
                 <div class="flex space-x-4">
                     <?php
-                        $menu_id = 4; // Replace with your actual menu ID
-                        $menu_items = wp_get_nav_menu_items($menu_id);
+                        // Get the menu object for the location 'footer_menu'
+                        $menu_name = 'footer_menu';
+                        $menu = wp_get_nav_menu_object($menu_name);
+
+                        // Retrieve menu items if the menu exists
+                        $menu_items = $menu ? wp_get_nav_menu_items($menu->term_id) : [];
                     ?>
 
                     <?php if($menu_items): ?>
@@ -53,6 +57,7 @@
                     <?php endif; ?>
                 </div>
             </div>
+
         </div>
     </div>
 </footer>

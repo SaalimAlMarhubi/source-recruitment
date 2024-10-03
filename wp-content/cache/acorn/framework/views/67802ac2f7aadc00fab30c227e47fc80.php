@@ -1,2 +1,2 @@
-<img class="w-48" src="<?php echo e(asset('images/map.png')); ?>" alt="">
+<img class="w-64" src="<?php echo e(asset('images/map.png')); ?>" alt="">
 <?php /**PATH /Users/saalim/Local Sites/source-recruitment/app/public/wp-content/themes/source-recruitment/resources/views/components/map.blade.php ENDPATH**/ ?>
